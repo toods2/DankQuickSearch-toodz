@@ -9,14 +9,14 @@ QtObject {
     property var pluginService: null
     property string pluginId: "dankQuickSearch"
     property string trigger: "!"
-    property string defaultEngine: "duckduckgo"
+    property string defaultEngine: "searxng"
 
     signal itemsChanged
 
     property var engines: [
-        { id: "duckduckgo", name: "DuckDuckGo", icon: "material:search", prefix: "", url: "https://duckduckgo.com/?q=" },
+        { id: "searxng", name: "searXNG", icon: "material:search", prefix: "", url: "https://searxng.tail.toodzhomelab.com/?q=" },
         { id: "google", name: "Google", icon: "material:search", prefix: "g", url: "https://www.google.com/search?q=" },
-        { id: "github", name: "GitHub", icon: "material:code", prefix: "gh", url: "https://github.com/search?q=" },
+        { id: "archwiki", name: "ArchWiki", icon: "material:search", prefix: "aw", url: "https://wiki.archlinux.org/index.php?search=" },
         { id: "youtube", name: "YouTube", icon: "material:play_circle", prefix: "yt", url: "https://www.youtube.com/results?search_query=" }
     ]
 
@@ -24,7 +24,7 @@ QtObject {
         if (!pluginService)
             return;
         trigger = pluginService.loadPluginData(pluginId, "trigger", "!");
-        defaultEngine = pluginService.loadPluginData(pluginId, "defaultEngine", "duckduckgo");
+        defaultEngine = pluginService.loadPluginData(pluginId, "defaultEngine", "searxng");
     }
 
     function getDefaultEngine() {

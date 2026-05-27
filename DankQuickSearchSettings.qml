@@ -57,12 +57,12 @@ PluginSettings {
                 label: I18n.tr("Default Search Engine")
                 description: I18n.tr("Engine used when no prefix is specified")
                 options: [
-                    { value: "duckduckgo", label: "DuckDuckGo" },
+                    { value: "searxng", label: "searXNG" },
                     { value: "google", label: "Google" },
-                    { value: "github", label: "GitHub" },
+                    { value: "archwiki", label: "ArchWiki" },
                     { value: "youtube", label: "YouTube" }
                 ]
-                defaultValue: "duckduckgo"
+                defaultValue: "searxng"
             }
         }
     }
@@ -99,7 +99,7 @@ PluginSettings {
             }
 
             StyledText {
-                text: I18n.tr("g — Google\ngh — GitHub\nyt — YouTube\n\nType a URL directly to open it in your browser.")
+                text: I18n.tr("g — Google\naw — ArchWiki\nyt — YouTube\n\nType a URL directly to open it in your browser.")
                 font.pixelSize: Theme.fontSizeSmall
                 color: Theme.surfaceVariantText
                 wrapMode: Text.WordWrap
