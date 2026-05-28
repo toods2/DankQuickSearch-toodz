@@ -37,7 +37,7 @@ QtObject {
 
     function getItems(query) {
         if (!query || query.trim().length === 0) {
-            return engines.map(function(e) {
+            return engines.map(function(e, index) {
                 var isDefault = (e.id === defaultEngine);
                 return {
                     name: e.name + (isDefault ? " (default)" : ""),
@@ -45,7 +45,7 @@ QtObject {
                     comment: e.prefix ? ("Prefix: " + e.prefix) : "Default engine",
                     action: "info:",
                     categories: ["Quick Search"],
-                    _preScored: 1000
+                    _preScored: 1000 - index
                 };
             });
         }
@@ -112,7 +112,7 @@ QtObject {
                     comment: "Search " + engines[j].name,
                     action: "open:" + engines[j].url + encodeURIComponent(searchQuery),
                     categories: ["Quick Search"],
-                    _preScored: 900
+                    _preScored: 900 - j
                 });
             }
         }
